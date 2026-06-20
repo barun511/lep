@@ -28,4 +28,14 @@ defmodule Jun26Test do
     newboard = Jun26.tick()
     assert newboard == [[1, 1], [1, 1]]
   end
+
+  test "die 2" do
+    board = Jun26.initBoard([[0, 1], [0, 0]])
+    newboard = Jun26.tick()
+    assert newboard == [[0, 0], [0, 0]]
+
+    board = Jun26.initBoard([[0, 1], [1, 1]])
+    newboard = Jun26.tick()
+    assert newboard == [[1, 1], [1, 1]]
+  end
 end
