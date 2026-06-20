@@ -9,10 +9,10 @@ defmodule Jun26 do
   ## Examples
 
       iex> Jun26.hello()
-      :world
+      :huhwhatisanatom
 
   """
   def hello do
-    :world
+    :huhwhatisanatom
   end
 end
