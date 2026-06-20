@@ -1,18 +1,5 @@
 defmodule Jun26 do
-  @moduledoc """
-  Documentation for `Jun26`.
-  """
-
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> Jun26.hello()
-      :huhwhatisanatom
-
-  """
-  def hello do
-    :huhwhatisanatom
+  def initBoard(_board) do
+    [[0, 0], [0, 0]]
   end
 end
