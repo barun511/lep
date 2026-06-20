@@ -1,5 +1,5 @@
 defmodule Jun26 do
-  def initBoard(_board) do
-    [[0, 0], [0, 0]]
+  def initBoard(board) do
+    board
   end
 end
