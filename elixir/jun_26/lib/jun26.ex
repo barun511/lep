@@ -1,9 +1,11 @@
 defmodule Jun26 do
-  def initBoard(board) do
+
+  def init(board) do
+    GenServer.start_link(GameState, board, name: MyStack)
     board
   end
 
   def tick() do
-    [[0, 0], [0, 0]]
+    GenServer.call(MyStack, :get)
   end
 end
