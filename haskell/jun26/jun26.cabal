@@ -67,7 +67,7 @@ library
     -- other-extensions:
 
     -- Other library packages from which modules are imported.
-    build-depends:    base
+    build-depends:    base,vector
 
     -- Directories containing source files.
     hs-source-dirs:   src
@@ -125,4 +125,5 @@ test-suite jun26-test
     build-depends:
         base,
         jun26,
-        HUnit
+        HUnit,
+        vector
