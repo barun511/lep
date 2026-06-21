@@ -67,7 +67,7 @@ library
     -- other-extensions:
 
     -- Other library packages from which modules are imported.
-    build-depends:    base ^>=4.18.3.0
+    build-depends:    base
 
     -- Directories containing source files.
     hs-source-dirs:   src
@@ -90,7 +90,7 @@ executable jun26
 
     -- Other library packages from which modules are imported.
     build-depends:
-        base ^>=4.18.3.0,
+        base,
         jun26
 
     -- Directories containing source files.
@@ -123,6 +123,6 @@ test-suite jun26-test
 
     -- Test dependencies.
     build-depends:
-        base ^>=4.18.3.0,
+        base,
         jun26,
         HUnit
