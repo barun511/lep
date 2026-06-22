@@ -1,8 +1,10 @@
+{-# LANGUAGE TupleSections #-}
 module Main (main) where
 
 import Data.Vector
-import MyLib (game, initializeBoard)
+import MyLib (game, initializeBoard, tickBoard)
 import Test.HUnit (Assertion, assertEqual)
+import Control.Monad.State
 
 main :: IO ()
 main = do
@@ -16,13 +18,17 @@ testCase = do
 
 testInitializeBoard :: Assertion
 testInitializeBoard = do
-  assertEqual "Can initialize board" (initializeBoard testBoard) testBoard
+  assertEqual "Can initialize board" (evalState initializeBoard testBoard) testBoard
 
 testTickBoardOnce :: Assertion
 testTickBoardOnce = do
-    let board = initializeBoard testBoard
-    let new_board = tickBoard board
-    assertEqual "One tick must die" new_board testEmptyBoard
+    let finalBoard = evalState testTickBoardOnceState testBoard
+    assertEqual "Can tick board" finalBoard testEmptyBoard
+
+testTickBoardOnceState :: State (Vector (Vector Integer)) (Vector (Vector Integer))
+testTickBoardOnceState = do
+    _ <- initializeBoard
+    tickBoard
 
 testBoard :: Vector (Vector Integer)
 testBoard = fromList [fromList [0, 0, 0], fromList [0, 1, 0], fromList [0, 0, 0]]

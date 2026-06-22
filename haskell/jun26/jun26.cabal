@@ -67,7 +67,7 @@ library
     -- other-extensions:
 
     -- Other library packages from which modules are imported.
-    build-depends:    base,vector
+    build-depends:    base,vector,mtl
 
     -- Directories containing source files.
     hs-source-dirs:   src
@@ -91,7 +91,8 @@ executable jun26
     -- Other library packages from which modules are imported.
     build-depends:
         base,
-        jun26
+        jun26,
+        mtl
 
     -- Directories containing source files.
     hs-source-dirs:   app
@@ -126,4 +127,5 @@ test-suite jun26-test
         base,
         jun26,
         HUnit,
-        vector
+        vector,
+        mtl
