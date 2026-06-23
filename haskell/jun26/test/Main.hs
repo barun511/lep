@@ -1,34 +1,27 @@
-{-# LANGUAGE TupleSections #-}
 
 module Main (main) where
 
 import Control.Monad.State
 import Data.Vector
-import MyLib (game, initializeBoard, tickBoard)
+import MyLib (game, tickBoard)
 import Test.HUnit (Assertion, assertEqual)
 
 main :: IO ()
 main = do
   testCase
-  testInitializeBoard
   testTickBoardOnce
 
 testCase :: Assertion
 testCase = do
   assertEqual "Test that game is equal" game "hello world"
 
-testInitializeBoard :: Assertion
-testInitializeBoard = do
-  assertEqual "Can initialize board" (evalState initializeBoard testBoard) testBoard
-
 testTickBoardOnce :: Assertion
 testTickBoardOnce = do
-  let (_, finalBoard) = runState testTickBoardOnceState testBoard
+  let finalBoard = execState testTickBoardOnceState testBoard
   assertEqual "Can tick board" finalBoard testEmptyBoard
 
 testTickBoardOnceState :: State (Vector (Vector Integer)) ()
 testTickBoardOnceState = do
-  _ <- initializeBoard
   tickBoard
 
 testBoard :: Vector (Vector Integer)
