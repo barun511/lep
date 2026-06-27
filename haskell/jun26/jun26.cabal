@@ -128,4 +128,5 @@ test-suite jun26-test
         jun26,
         HUnit,
         vector,
-        mtl
+        mtl,
+        random
